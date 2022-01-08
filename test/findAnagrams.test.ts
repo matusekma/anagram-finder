@@ -1,6 +1,5 @@
 import { createCharMap, findAnagrams } from "../src/anagramOperations";
 import CharMap from "../src/types/CharMap";
-import CharMapsByWord from "../src/types/CharMapsByWord";
 
 const createDictionaryCharMap = (dictionary: string[]) =>
     dictionary.map(word => ({ word: word, charMap: createCharMap(word) }))
