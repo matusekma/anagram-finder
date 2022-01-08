@@ -4,7 +4,7 @@ dictionary. The algorithm is case-insensitive and ignores whitespaces.
 Tests are written using Jest. Statement, Branch, Function and Line Coverage are all 100%.
 
 Intalling dependencies:  
-`npm install`
+`npm install`  
 Run CLI app:  
 `npm run start`  
 Run tests:  
