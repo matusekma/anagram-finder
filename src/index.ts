@@ -29,7 +29,7 @@ function waitForUserInputAndProcess() {
             inputReader.close()
         } else {
             const anagrams = findAnagrams(createCharMap(input), dictionaryCharMaps)
-            console.log(`The anagrams found for "${input}" are:\n${anagrams.join(", ")}`)
+            console.log(`The anagrams found for "${input}" are:\n${anagrams.join(", ")}\n`)
             waitForUserInputAndProcess()
         }
     });
