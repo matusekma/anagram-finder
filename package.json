@@ -5,7 +5,10 @@
   "main": "./src/index.ts",
   "scripts": {
     "start": "ts-node ./src/index.ts",
-    "test": "jest"
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "test": "jest",
+    "test-with-coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
