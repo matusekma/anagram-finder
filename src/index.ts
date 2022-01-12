@@ -1,11 +1,10 @@
 import fs from "fs";
 import readline from "readline"
-import { findAnagrams, createCharMap } from "./anagramOperations";
-import CharMapsByWord from "./types/CharMapsByWord";
+import SortedStringToAnagramsMap from "./types/SortedStringToAnagramsMap";
 
 var file = './src/assets/wordlist.txt';
 
-const dictionaryCharMaps: CharMapsByWord = []
+const sortedStringToAnagramsMap: SortedStringToAnagramsMap = new SortedStringToAnagramsMap()
 
 var fileReader = readline.createInterface({
     input: fs.createReadStream(file),
@@ -19,7 +18,7 @@ const inputReader = readline.createInterface({
 });
 
 fileReader.on('line', function (line) {
-    dictionaryCharMaps.push({ word: line, charMap: createCharMap(line) })
+    sortedStringToAnagramsMap.add(line)
 });
 
 function waitForUserInputAndProcess() {
@@ -28,7 +27,7 @@ function waitForUserInputAndProcess() {
             console.log("Bye!")
             inputReader.close()
         } else {
-            const anagrams = findAnagrams(createCharMap(input), dictionaryCharMaps)
+            const anagrams = sortedStringToAnagramsMap.getAnagrams(input)
             console.log(`The anagrams found for "${input}" are:\n${anagrams.join(", ")}\n`)
             waitForUserInputAndProcess()
         }
