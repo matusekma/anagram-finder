@@ -1,23 +1,29 @@
 import { sortWord } from "../stringHelpers"
 
-class SortedStringToAnagramsMap extends Map<string, string[]> {
-    
+class SortedStringToAnagramsMap {
+    private map: Map<string, string[]>
+
+    constructor() {
+        this.map = new Map()
+    }
+
     getAnagrams(word: string): string[] {
         const sortedWord = sortWord(word)
-        return this.get(sortedWord) || []
+        return this.map.get(sortedWord) || []
     }
 
     add(word: string) {
         const sortedWord = sortWord(word)
-        let anagrams = this.get(sortedWord)
+        let anagrams = this.map.get(sortedWord)
         if(anagrams) {
             anagrams.push(word)
         } else {
             anagrams = [word]
         }
-        this.set(sortedWord, anagrams)
+        this.map.set(sortedWord, anagrams)
     }
 
 }
+
 
 export default SortedStringToAnagramsMap
