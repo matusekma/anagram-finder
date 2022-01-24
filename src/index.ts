@@ -34,4 +34,4 @@ function waitForUserInputAndProcess() {
     });
 }
 
-waitForUserInputAndProcess()
+fileReader.on("close", waitForUserInputAndProcess)
